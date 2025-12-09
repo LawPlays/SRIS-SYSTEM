@@ -7,7 +7,5 @@ storage/logs/
 .env.*
 .git
 .gitignore
-Dockerfile
-docker/
 dist
 public/build
