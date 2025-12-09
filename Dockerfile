@@ -7,10 +7,10 @@ COPY composer.json composer.lock /app/
 RUN composer install --no-dev --prefer-dist --no-interaction --no-progress
 
 # 2) Build frontend assets
-FROM node:18-alpine AS assets
+FROM node:20-alpine AS assets
 WORKDIR /app
 COPY package.json package-lock.json /app/
-RUN npm ci --omit=dev --no-progress
+RUN npm ci --no-progress
 COPY resources /app/resources
 COPY vite.config.* /app/
 COPY tailwind.config.* /app/
@@ -56,4 +56,3 @@ COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 CMD ["/usr/local/bin/entrypoint.sh"]
-
