@@ -21,21 +21,10 @@ services:
         value: file
       - key: QUEUE_CONNECTION
         value: sync
+      - key: MAIL_MAILER
+        value: log
       # Use mysql if available; otherwise sqlite fallback
       - key: DB_CONNECTION
         value: sqlite
       - key: DB_DATABASE
         value: /var/www/html/database/database.sqlite
-      # Mail (optional)
-      - key: MAIL_MAILER
-        value: smtp
-      - key: MAIL_HOST
-        value: smtp.gmail.com
-      - key: MAIL_PORT
-        value: '587'
-      - key: MAIL_ENCRYPTION
-        value: tls
-      - key: MAIL_USERNAME
-        sync: false
-      - key: MAIL_PASSWORD
-        sync: false
